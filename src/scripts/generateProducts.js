@@ -16,4 +16,4 @@ async function generateProducts(number) {
   }
 }
 
-generateProducts(5);
+generateProducts(25);
