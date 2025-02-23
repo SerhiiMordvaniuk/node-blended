@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Oriental Granite Pants",
+    "price": "231.69",
+    "category": "Grocery"
+  },
+  {
+    "name": "Intelligent Bamboo Pants",
+    "price": "310.45",
+    "category": "Automotive"
+  },
+  {
+    "name": "Intelligent Concrete Salad",
+    "price": "390.89",
+    "category": "Computers"
+  },
+  {
+    "name": "Soft Bronze Car",
+    "price": "400.75",
+    "category": "Automotive"
+  },
+  {
+    "name": "Unbranded Wooden Ball",
+    "price": "667.99",
+    "category": "Health"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "blended",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node src/scripts/generateProducts.js",
+    "filter-by-price": "node src/scripts/getProductsByMinPrice.js",
+    "modify": "node src/scripts/modifyProducts.js"
+  },
+  "keywords": [],
+  "author": "Serhii Mordvaniuk <sm636332@gmail.com>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0"
+  }
+}
