@@ -10,14 +10,14 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
 const router = Router();
 
-router.get('/products', ctrlWrapper(getAllProductsController));
+router.get('/', ctrlWrapper(getAllProductsController));
 
-router.get('/products/:productId', ctrlWrapper(getProductsByIdController));
+router.get('/:productId', ctrlWrapper(getProductsByIdController));
 
-router.post('/products', ctrlWrapper(createProductController));
+router.post('/', ctrlWrapper(createProductController));
 
-router.delete('/products/:productId', ctrlWrapper(deleteProductController));
+router.delete('/:productId', ctrlWrapper(deleteProductController));
 
-router.patch(`/products/:productId`, ctrlWrapper(updateProductController));
+router.patch(`/:productId`, ctrlWrapper(updateProductController));
 
 export default router;
