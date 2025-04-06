@@ -7,7 +7,7 @@ import { env } from '../utils/env.js';
 
 export const findUserByEmail = (email) => User.findOne({ email });
 
-const updateUserWithToken = (userId) => {
+export const updateUserWithToken = (userId) => {
   const userToken = jwt.sign({ userId }, env('JWT_SECRET'));
   return User.findByIdAndUpdate(userId, { token: userToken }, { new: true });
 };

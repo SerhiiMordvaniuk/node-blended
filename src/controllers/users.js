@@ -1,9 +1,10 @@
 import createHttpError from 'http-errors';
-// import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 
 import {
   findUserByEmail,
   createUser,
+  updateUserWithToken,
   //   createActiveSession,
 } from '../services/users.js';
 // import { setupCookies } from '../utils/cookies.js';
@@ -21,23 +22,22 @@ export const registerUserController = async (req, res) => {
   });
 };
 
-// export const loginUserController = async (req, res) => {
-//   const user = await findUserByEmail(req.body.email);
+export const loginUserController = async (req, res) => {
+  const user = await findUserByEmail(req.body.email);
 
-//   if (!user) throw createHttpError(401, 'Credentials are wrong');
+  if (!user) throw createHttpError(401, 'Credentials are wrong');
 
-//   const isEqualPassword = await bcrypt.compare(
-//     req.body.password,
-//     user.password,
-//   );
+  const isEqualPassword = await bcrypt.compare(
+    req.body.password,
+    user.password,
+  );
 
-//   if (!isEqualPassword) throw createHttpError(401, 'Credentials are wrong');
-//   const session = await createActiveSession(user._id);
-//   setupCookies(res, session);
+  if (!isEqualPassword) throw createHttpError(401, 'Credentials are wrong');
 
-//   res.json({
-//     status: 200,
-//     message: 'Successfully logged in an user!',
-//     data: { accessToken: session.accessToken },
-//   });
-// };
+  const updatedUser = await updateUserWithToken(user._id);
+
+  res.json({
+    user: { name: updatedUser.name, email: updatedUser.email },
+    token: updatedUser.token,
+  });
+};
